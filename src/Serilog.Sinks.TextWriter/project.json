@@ -1,23 +1,27 @@
 ﻿{
-  "version": "2.0.0-beta-*",
+  "version": "2.0.0-rc-*",
   "description": "The System.IO.TextWriter sink for Serilog",
   "authors": [ "Serilog Contributors" ],
   "tags": [ "serilog", "IO", "text", "writer" ],
   "projectUrl": "http://serilog.net",
   "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0",
   "iconUrl": "http://serilog.net/images/serilog-sink-nuget.png",
+  "buildOptions": {
+    "keyFile": "../../assets/Serilog.snk",
+    "xmlDoc": true
+  },
   "dependencies": {
-    "Serilog": "2.0.0-beta-505"
+    "Serilog": "2.0.0-rc-556"
   },
   "compilationOptions": {
     "keyFile": "../../assets/Serilog.snk"
   },
   "frameworks": {
-    "net45": {
+    "net4.5": {
     },
-    "dotnet5.1": {
+    "netstandard1.0": {
       "dependencies": {
-        "System.IO": "4.0.11-beta-23516"
+        "System.IO": "4.1.0-rc2-24027"
       }
     }
   }
