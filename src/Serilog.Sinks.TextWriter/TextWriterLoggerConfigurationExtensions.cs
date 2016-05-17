@@ -22,6 +22,9 @@ using Serilog.Sinks.TextWriter;
 
 namespace Serilog
 {
+    /// <summary>
+    /// Adds the WriteTo.TextWriter() extension method to <see cref="LoggerConfiguration"/>.
+    /// </summary>
     public static class TextWriterLoggerConfigurationExtensions
     {
         const string DefaultOutputTemplate = "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] {Message}{NewLine}{Exception}";
