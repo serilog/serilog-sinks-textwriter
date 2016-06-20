@@ -30,7 +30,7 @@ namespace Serilog
         const string DefaultOutputTemplate = "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] {Message}{NewLine}{Exception}";
 
         /// <summary>
-        /// Write log events to the provided <see cref="TextWriter"/>.
+        /// Write log events to the provided <see cref="System.IO.TextWriter"/>.
         /// </summary>
         /// <param name="sinkConfiguration">Logger sink configuration.</param>
         /// <param name="textWriter">The text writer to write log events to.</param>
