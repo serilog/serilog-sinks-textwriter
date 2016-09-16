@@ -17,6 +17,7 @@ using System.IO;
 using Serilog.Configuration;
 using Serilog.Core;
 using Serilog.Events;
+using Serilog.Formatting;
 using Serilog.Formatting.Display;
 using Serilog.Sinks.TextWriter;
 
@@ -30,7 +31,7 @@ namespace Serilog
         const string DefaultOutputTemplate = "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] {Message}{NewLine}{Exception}";
 
         /// <summary>
-        /// Write log events to the provided <see cref="TextWriter"/>.
+        /// Write log events to the provided <see cref="System.IO.TextWriter"/>.
         /// </summary>
         /// <param name="sinkConfiguration">Logger sink configuration.</param>
         /// <param name="textWriter">The text writer to write log events to.</param>
@@ -55,6 +56,31 @@ namespace Serilog
 
             var formatter = new MessageTemplateTextFormatter(outputTemplate, formatProvider);
             var sink = new TextWriterSink(textWriter, formatter);
+            return sinkConfiguration.Sink(sink, restrictedToMinimumLevel, levelSwitch);
+        }
+
+        /// <summary>
+        /// Write log events to the provided <see cref="System.IO.TextWriter"/>.
+        /// </summary>
+        /// <param name="sinkConfiguration">Logger sink configuration.</param>
+        /// <param name="textWriter">The text writer to write log events to.</param>
+        /// <param name="textFormatter">Text formatter used by sink.</param>
+        /// /// <param name="restrictedToMinimumLevel">The minimum level for
+        /// events passed through the sink. Ignored when <paramref name="levelSwitch"/> is specified.</param>
+        /// <param name="levelSwitch">A switch allowing the pass-through minimum level
+        /// to be changed at runtime.</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public static LoggerConfiguration TextWriter(
+            this LoggerSinkConfiguration sinkConfiguration,
+            TextWriter textWriter,
+            ITextFormatter textFormatter,
+            LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum,
+            LoggingLevelSwitch levelSwitch = null)
+        {
+            if (textWriter == null) throw new ArgumentNullException(nameof(textWriter));
+            if (textFormatter == null) throw new ArgumentNullException(nameof(textFormatter));
+
+            var sink = new TextWriterSink(textWriter, textFormatter);
             return sinkConfiguration.Sink(sink, restrictedToMinimumLevel, levelSwitch);
         }
     }
