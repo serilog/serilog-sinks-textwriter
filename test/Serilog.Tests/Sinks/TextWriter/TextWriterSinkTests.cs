@@ -49,7 +49,7 @@ namespace Serilog.Tests.Sinks.TextWriter
 
             var formatter = new MessageTemplateTextFormatter("{Message}", null);
             var log = new LoggerConfiguration()
-                .WriteTo.TextWriter(sw, formatter)
+                .WriteTo.TextWriter(formatter, sw)
                 .CreateLogger();
 
             var mt = Some.String();
@@ -67,7 +67,7 @@ namespace Serilog.Tests.Sinks.TextWriter
             var french = new CultureInfo("fr-FR");
             var formatter = new MessageTemplateTextFormatter("{Message}", french);
             var log = new LoggerConfiguration()
-                .WriteTo.TextWriter(sw, formatter)
+                .WriteTo.TextWriter(formatter, sw)
                 .CreateLogger();
 
             var mt = String.Format(french, "{0}", 12.345);

@@ -64,7 +64,7 @@ namespace Serilog
         /// </summary>
         /// <param name="sinkConfiguration">Logger sink configuration.</param>
         /// <param name="textWriter">The text writer to write log events to.</param>
-        /// <param name="textFormatter">Text formatter used by sink.</param>
+        /// <param name="formatter">Text formatter used by sink.</param>
         /// /// <param name="restrictedToMinimumLevel">The minimum level for
         /// events passed through the sink. Ignored when <paramref name="levelSwitch"/> is specified.</param>
         /// <param name="levelSwitch">A switch allowing the pass-through minimum level
@@ -72,15 +72,15 @@ namespace Serilog
         /// <exception cref="ArgumentNullException"></exception>
         public static LoggerConfiguration TextWriter(
             this LoggerSinkConfiguration sinkConfiguration,
+            ITextFormatter formatter,
             TextWriter textWriter,
-            ITextFormatter textFormatter,
             LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum,
             LoggingLevelSwitch levelSwitch = null)
         {
             if (textWriter == null) throw new ArgumentNullException(nameof(textWriter));
-            if (textFormatter == null) throw new ArgumentNullException(nameof(textFormatter));
+            if (formatter == null) throw new ArgumentNullException(nameof(formatter));
 
-            var sink = new TextWriterSink(textWriter, textFormatter);
+            var sink = new TextWriterSink(textWriter, formatter);
             return sinkConfiguration.Sink(sink, restrictedToMinimumLevel, levelSwitch);
         }
     }
