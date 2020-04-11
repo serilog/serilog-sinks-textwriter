@@ -28,11 +28,6 @@
     <PackageReference Include="xunit" Version="2.2.0-beta5-build3474" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
-
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net452' ">
     <DefineConstants>$(DefineConstants);APPDOMAIN;REMOTING;GETCURRENTMETHOD</DefineConstants>
   </PropertyGroup>

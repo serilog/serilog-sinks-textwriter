@@ -22,13 +22,4 @@
     <PackageReference Include="Serilog" Version="2.3.0" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.0' ">
-    <PackageReference Include="System.IO" Version="4.1.0" />
-  </ItemGroup>
-
 </Project>
