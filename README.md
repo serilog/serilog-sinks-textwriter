@@ -1,4 +1,4 @@
-#Serilog.Sinks.TextWriter
+# Serilog.Sinks.TextWriter
 
 The System.IO.TextWriter sink for Serilog.
 
