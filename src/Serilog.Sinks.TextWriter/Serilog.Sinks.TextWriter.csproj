@@ -14,12 +14,20 @@
     <PackageTags>serilog;IO;text;writer</PackageTags>
     <PackageIconUrl>http://serilog.net/images/serilog-sink-nuget.png</PackageIconUrl>
     <PackageProjectUrl>http://serilog.net</PackageProjectUrl>
-    <PackageLicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</PackageLicenseUrl>
-    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/serilog/serilog-sinks-textwriter</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RootNamespace>Serilog</RootNamespace>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DisableImplicitFrameworkReferences Condition=" '$(TargetFramework)' == 'netstandard1.3' ">true</DisableImplicitFrameworkReferences>
+    <EnableSourceLink Condition="'$(EnableSourceLink)' == ''">false</EnableSourceLink>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Serilog" Version="2.3.0" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
   </ItemGroup>
 
 </Project>
