@@ -1,25 +1,24 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32519.111
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{037440DE-440B-4129-9F7A-09B42D00397E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{E9D1B5E1-DEB9-4A04-8BAB-24EC7240ADAF}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		appveyor.yml = appveyor.yml
 		Build.ps1 = Build.ps1
-		global.json = global.json
-		NuGet.Config = NuGet.Config
+		build.sh = build.sh
 		README.md = README.md
 		assets\Serilog.snk = assets\Serilog.snk
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Serilog.Sinks.TextWriter", "src\Serilog.Sinks.TextWriter\Serilog.Sinks.TextWriter.xproj", "{E85ABEC7-9B4C-432C-9A04-AC5BE9205D9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serilog.Sinks.TextWriter", "src\Serilog.Sinks.TextWriter\Serilog.Sinks.TextWriter.csproj", "{E85ABEC7-9B4C-432C-9A04-AC5BE9205D9F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{9B68D540-8107-4748-8A64-CF5F7F0E1B1E}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Serilog.Tests", "test\Serilog.Tests\Serilog.Tests.xproj", "{3C2D8E01-5580-426A-BDD9-EC59CD98E618}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Serilog.Tests", "test\Serilog.Tests\Serilog.Tests.csproj", "{3C2D8E01-5580-426A-BDD9-EC59CD98E618}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,5 +41,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E85ABEC7-9B4C-432C-9A04-AC5BE9205D9F} = {037440DE-440B-4129-9F7A-09B42D00397E}
 		{3C2D8E01-5580-426A-BDD9-EC59CD98E618} = {9B68D540-8107-4748-8A64-CF5F7F0E1B1E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E99B354-3D27-4D13-BCB1-904C974D9A82}
 	EndGlobalSection
 EndGlobal
