@@ -12,9 +12,10 @@
     <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
     <PackageId>Serilog.Sinks.TextWriter</PackageId>
     <PackageTags>serilog;IO;text;writer</PackageTags>
-    <PackageIconUrl>http://serilog.net/images/serilog-sink-nuget.png</PackageIconUrl>
+    <PackageIcon>serilog-sink-nuget.png</PackageIcon>
     <PackageProjectUrl>http://serilog.net</PackageProjectUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/serilog/serilog-sinks-textwriter</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <RootNamespace>Serilog</RootNamespace>
@@ -28,6 +29,11 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Serilog" Version="2.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../assets/serilog-sink-nuget.png" Pack="true" Visible="false" PackagePath="/" />
+    <None Include="../../README.md" Pack="true" Visible="false" PackagePath="/" />
   </ItemGroup>
 
 </Project>
