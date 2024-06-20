@@ -13,29 +13,26 @@
 // limitations under the License.
 
 using System;
-using System.IO;
 using Serilog.Core;
 using Serilog.Events;
 using Serilog.Formatting;
 
 namespace Serilog.Sinks.TextWriter
 {
-    class TextWriterSink : ILogEventSink
+    sealed class TextWriterSink : ILogEventSink
     {
         readonly System.IO.TextWriter _textWriter;
         readonly ITextFormatter _textFormatter;
-        readonly object _syncRoot = new object();
+        readonly object _syncRoot = new();
 
         public TextWriterSink(System.IO.TextWriter textWriter, ITextFormatter textFormatter)
         {
-            if (textFormatter == null) throw new ArgumentNullException(nameof(textFormatter));
             _textWriter = textWriter;
             _textFormatter = textFormatter;
         }
 
         public void Emit(LogEvent logEvent)
         {
-            if (logEvent == null) throw new ArgumentNullException(nameof(logEvent));
             lock (_syncRoot)
             {
                 _textFormatter.Format(logEvent, _textWriter);
