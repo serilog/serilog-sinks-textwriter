@@ -22,7 +22,7 @@ namespace Serilog.Tests.Sinks.TextWriter
             log.Information(mt);
 
             var s = sw.ToString();
-            Assert.True(s.Contains(mt));
+            Assert.Contains(mt, s);
         }
 
         [Fact]
@@ -39,7 +39,7 @@ namespace Serilog.Tests.Sinks.TextWriter
             log.Information("{0}", 12.345);
 
             var s = sw.ToString();
-            Assert.True(s.Contains(mt));
+            Assert.Contains(mt, s);
         }
 
         [Fact]
@@ -56,7 +56,7 @@ namespace Serilog.Tests.Sinks.TextWriter
             log.Information(mt);
 
             var s = sw.ToString();
-            Assert.True(s.Contains(mt));
+            Assert.Contains(mt, s);
         }
 
         [Fact]
@@ -74,7 +74,7 @@ namespace Serilog.Tests.Sinks.TextWriter
             log.Information("{0}", 12.345);
 
             var s = sw.ToString();
-            Assert.True(s.Contains(mt));
+            Assert.Contains(mt, s);
         }
     }
 }
