@@ -48,11 +48,11 @@ namespace Serilog
             TextWriter textWriter,
             LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum,
             string outputTemplate = DefaultOutputTemplate,
-            IFormatProvider formatProvider = null,
-            LoggingLevelSwitch levelSwitch = null)
+            IFormatProvider? formatProvider = null,
+            LoggingLevelSwitch? levelSwitch = null)
         {
-            if (textWriter == null) throw new ArgumentNullException(nameof(textWriter));
-            if (outputTemplate == null) throw new ArgumentNullException(nameof(outputTemplate));
+            if (textWriter is null) throw new ArgumentNullException(nameof(textWriter));
+            if (outputTemplate is null) throw new ArgumentNullException(nameof(outputTemplate));
 
             var formatter = new MessageTemplateTextFormatter(outputTemplate, formatProvider);
             var sink = new TextWriterSink(textWriter, formatter);
@@ -75,10 +75,10 @@ namespace Serilog
             ITextFormatter formatter,
             TextWriter textWriter,
             LogEventLevel restrictedToMinimumLevel = LevelAlias.Minimum,
-            LoggingLevelSwitch levelSwitch = null)
+            LoggingLevelSwitch? levelSwitch = null)
         {
-            if (textWriter == null) throw new ArgumentNullException(nameof(textWriter));
-            if (formatter == null) throw new ArgumentNullException(nameof(formatter));
+            if (textWriter is null) throw new ArgumentNullException(nameof(textWriter));
+            if (formatter is null) throw new ArgumentNullException(nameof(formatter));
 
             var sink = new TextWriterSink(textWriter, formatter);
             return sinkConfiguration.Sink(sink, restrictedToMinimumLevel, levelSwitch);
