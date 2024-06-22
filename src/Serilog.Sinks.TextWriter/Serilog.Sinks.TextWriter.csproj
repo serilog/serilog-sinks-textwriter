@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>The System.IO.TextWriter sink for Serilog</Description>
+    <VersionPrefix>3.0.0</VersionPrefix>
+    <Authors>Serilog Contributors</Authors>
+    <!-- .NET Framework version targeting is frozen at these two TFMs. -->
+    <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT'">net471;net462</TargetFrameworks>
+    <!-- Policy is to trim TFM-specific builds to `netstandard2.0`, `net6.0`,
+         all active LTS versions, and optionally the latest RTM version, when releasing new
+         major Serilog versions. -->
+    <TargetFrameworks>$(TargetFrameworks);net8.0;net6.0;netstandard2.0</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>Serilog.Sinks.TextWriter</AssemblyName>
+    <AssemblyOriginatorKeyFile>../../assets/Serilog.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+    <PackageId>Serilog.Sinks.TextWriter</PackageId>
+    <PackageTags>serilog;IO;text;writer</PackageTags>
+    <PackageIcon>serilog-sink-nuget.png</PackageIcon>
+    <PackageProjectUrl>http://serilog.net</PackageProjectUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryType>git</RepositoryType>
+    <RootNamespace>Serilog</RootNamespace>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../assets/serilog-sink-nuget.png" Pack="true" Visible="false" PackagePath="/" />
+    <None Include="../../README.md" Pack="true" Visible="false" PackagePath="/" />
+  </ItemGroup>
+
+</Project>
